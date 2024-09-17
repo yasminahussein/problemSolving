@@ -1,11 +1,23 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
+        s_letters = []
+        if(len(s)!= len(t)):
             return False
+        else:
+            for i in s:
+                counter = 0
+                for j in t:
+                    counter +=1
+                    if (i ==j):
+                       s= s.replace(i , '',1)
+                       t=t.replace(j , '',1)
+                       break
+                    elif (counter == len(t)):
+                        s_letters.append(i)
+                    else:
+                        continue 
 
-        countS, countT = {}, {}
-
-        for i in range(len(s)):
-            countS[s[i]] = 1 + countS.get(s[i], 0)
-            countT[t[i]] = 1 + countT.get(t[i], 0)
-        return countS == countT
+            if (len(s_letters)!= 0 ) :
+                return False
+            else :
+                return True
