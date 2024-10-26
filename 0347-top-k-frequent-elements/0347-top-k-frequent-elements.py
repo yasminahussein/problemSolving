@@ -1,6 +1,5 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        nums=sorted(nums)
         dic= {}
         counter=(-k)
         high_freqs=[]
